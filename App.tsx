@@ -17,6 +17,12 @@ import {
   View,
 } from 'react-native';
 
+// import App Center Analytics at the top of the file.
+import Analytics from 'appcenter-analytics';
+
+Analytics.trackEvent('Video clicked', { Category: 'Music', FileName: 'favorite.avi' });
+
+
 import {
   Colors,
   DebugInstructions,
@@ -30,6 +36,7 @@ type SectionProps = PropsWithChildren<{
 }>;
 
 function Section({children, title}: SectionProps): JSX.Element {
+  Analytics.trackEvent("Section");
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
